@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  data:
+    redis:
+      url: ${REDIS_URL}
+
+server:
+  port: ${PORT:8083}
+
+promotionos:
+  tenant-id: ${TENANT_ID:tenant-kroger-001}
+  services:
+    eligibility-url: ${ELIGIBILITY_SERVICE_URL:http://localhost:8082}
+    campaign-url: ${CAMPAIGN_SERVICE_URL:http://localhost:8081}
+  redis:
+    channels:
+      offer-redeemed: promotionos.redemption.redeemed
+      claim-submitted: promotionos.redemption.claim.submitted
