@@ -11,7 +11,7 @@ import java.util.List;
 // Fallback publisher used when Redis is unavailable (local dev without Redis)
 @Slf4j
 @Component
-@ConditionalOnMissingBean(EventPublisher.class)
+@ConditionalOnMissingBean(DomainEventPublisher.class)
 public class LoggingEventPublisher implements DomainEventPublisher {
 
     @Override

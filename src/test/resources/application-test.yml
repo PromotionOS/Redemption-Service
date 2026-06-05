@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: false
+  data:
+    redis:
+      url: redis://localhost:6379
+
+promotionos:
+  tenant-id: tenant-test-001
+  services:
+    eligibility-url: http://localhost:8082
+    campaign-url: http://localhost:8081
+  redis:
+    channels:
+      offer-redeemed: promotionos.redemption.redeemed
+      claim-submitted: promotionos.redemption.claim.submitted

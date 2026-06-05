@@ -8,14 +8,12 @@ import com.promotionos.redemption.domain.event.DomainEvent;
 import com.promotionos.redemption.domain.event.OfferRedeemed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@ConditionalOnBean(StringRedisTemplate.class)
 @RequiredArgsConstructor
 public class EventPublisher implements DomainEventPublisher {
 
